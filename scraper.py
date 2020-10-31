@@ -11,4 +11,4 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 title = soup.find(id="productTitle")
 
-print(title)
+print(title)d
