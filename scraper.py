@@ -7,8 +7,10 @@ headers = {"User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:82.0) Gec
 
 page = requests.get(URL, headers=headers)
 
-soup = BeautifulSoup(page.content, 'html.parser')
+soup = BeautifulSoup(page.content, 'lxml')
 
-title = soup.find(id="productTitle")
-
-print(title)d
+title = soup.find(id="productTitle").get_text()
+price = soup.find(id="priceblock_ourprice").get_text()
+converted_price = price[0:3]
+print(converted_price.strip())
+print(title.strip())
