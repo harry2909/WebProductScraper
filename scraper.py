@@ -15,15 +15,15 @@ def check_price():
 
     title = soup.find(id="productTitle").get_text()
     price = soup.find(id="priceblock_ourprice").get_text()
-    converted_price = price[0:3]
+    converted_price = float(price[1:6])
 
-    if(converted_price < 75):
+    if(converted_price < 75.00):
         send_mail()
 
-    print(converted_price.strip())
+    print(converted_price)
     print(title.strip())
 
-    if(converted_price < 75):
+    if(converted_price < 75.00):
         send_mail()
 
 
@@ -48,4 +48,7 @@ def send_mail():
     print('HEY EMAIL HAS BEEN SENT')
 
     server.quit()
+
+
+check_price()
 
